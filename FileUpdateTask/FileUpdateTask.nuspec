@@ -14,7 +14,7 @@
 This is a repackaging of the MSBuild Community Tasks FileUpdate task for cross-platform support.</description>
     <summary>Replace text in file(s) using a Regular Expression.</summary>
     <copyright>Copyright 2005 Paul Welter. All rights reserved.</copyright>
-    <repository type="git" url="https://github.com/spoiledcat/UnityTools" commit="$commit$" />
+    <repository type="git" url="https://github.com/spoiledcat/MSBuildTasks" commit="$commit$" />
     <dependencies>
       <group targetFramework=".NETFramework4.7.1">
         <dependency id="Microsoft.Build.Framework" version="16.3.0" exclude="Build,Analyzers" />
