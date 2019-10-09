@@ -5,7 +5,6 @@
     <SolutionDir Condition=" '$(SolutionDir)' == '' ">..\</SolutionDir>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>$(SolutionDir)common\publickey.snk</AssemblyOriginatorKeyFile>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>SpoiledCat.MSBuild.Tasks.FileUpdate</PackageId>
     <NuspecFile>$(MSBuildThisFileDirectory)$(MSbuildProjectName).nuspec</NuspecFile>
   </PropertyGroup>
