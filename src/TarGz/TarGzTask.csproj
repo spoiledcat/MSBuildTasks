@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net471;netcoreapp2.2</TargetFrameworks>
+    <SolutionDir Condition=" '$(SolutionDir)' == '' ">..\..\</SolutionDir>
+    <PackageSummary>Create a tar.gz archive.</PackageSummary>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpZipLib" Version="1.2.0" CopyLocalLockFileAssemblies="true" />
+    <PackageReference Include="SpoiledCat.Unity.NiceIO" Version="1.0.14" CopyLocalLockFileAssemblies="true" />
+  </ItemGroup>
+
+  <Import Project="$(SolutionDir)common\configuration.targets" />
+
+</Project>

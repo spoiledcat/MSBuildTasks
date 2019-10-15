@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net471</TargetFramework>
+    <SolutionDir Condition=" '$(SolutionDir)' == '' ">..\..\</SolutionDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\TarGz\TarGzTask.csproj" />
+  </ItemGroup>
+
+  <UsingTask AssemblyFile="$(OutputPath)TarGzTask.dll" TaskName="SpoiledCat.MSBuild.Community.Tasks.TarGz" />
+
+  <ItemGroup>
+    <FilesToArchive Include="$(SolutionDir)common\*" />
+  </ItemGroup>
+
+  <Target Name="ArchiveSomeFiles" AfterTargets="Pack">
+
+    <Message Importance="High" text="After pack" />
+    
+    <TarGz Include="@(FilesToArchive);$(SolutionDir)build\nuget" RootName="package" Out="$(OutputPath)filesandir.tgz" />
+    <TarGz Include="$(SolutionDir)build\nuget" RootName="package" Out="$(OutputPath)dir.tgz" />
+
+  </Target>
+
+
+</Project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TaskName>FileUpdate</TaskName>
+    <TaskDLL>$(TaskName)Task.dll</TaskDLL>
+    <Profile Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">net471</Profile>
+    <Profile Condition="'$(TargetFrameworkIdentifier)' != '.NETFramework'">netcoreapp2.2</Profile>
+    <TaskToolsPath Condition="'$(TaskToolsPath)' == '' and '$(MSBuildThisFile)' == '$(TaskName)Task.targets'">$(MSBuildThisFileDirectory)</TaskToolsPath>
+    <TaskToolsPath Condition="'$(TaskToolsPath)' == '' and '$(MSBuildThisFile)' == 'SpoiledCat.MSBuild.Tasks.$(TaskName).targets'">$(MSBuildThisFileDirectory)$(Profile)\</TaskToolsPath>
+    <TaskLib Condition="'$(OS)' == 'Windows_NT'">$([MSBUILD]::Unescape($(TaskToolsPath)$(TaskDLL)))</TaskLib>
+    <TaskLib Condition="'$(OS)' != 'Windows_NT'">$(TaskToolsPath)$(TaskDLL)</TaskLib>
+    <TaskLib Condition="!Exists('$(TaskLib)')">$(TaskDLL)</TaskLib>
+  </PropertyGroup>
+  <UsingTask AssemblyFile="$(TaskLib)" TaskName="SpoiledCat.MSBuild.Community.Tasks.$(TaskName)" />
+</Project>

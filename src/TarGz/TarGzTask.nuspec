@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>$authors$</authors>
+    <owners>$owners$</owners>
+    <icon>images\icon.png</icon>
+    <developmentDependency>true</developmentDependency>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">$license$</license>
+    <projectUrl>$url$</projectUrl>
+    <description>$description$</description>
+    <summary>$summary$</summary>
+    <copyright>$copyright$</copyright>
+    <repository type="git" url="https://github.com/spoiledcat/MSBuildTasks" commit="$commit$" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.1">
+        <dependency id="Microsoft.Build.Framework" version="16.3.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Build.Utilities.Core" version="16.3.0" exclude="Build,Analyzers" />
+        <dependency id="SharpZipLib" version="1.2.0" exclude="Build,Analyzers" />
+        <dependency id="SpoiledCat.Unity.NiceIO" version="1.0.14" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp2.2">
+        <dependency id="Microsoft.Build.Framework" version="16.3.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Build.Utilities.Core" version="16.3.0" exclude="Build,Analyzers" />
+        <dependency id="SharpZipLib" version="1.2.0" exclude="Build,Analyzers" />
+        <dependency id="SpoiledCat.Unity.NiceIO" version="1.0.14" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Threading.Thread" targetFramework=".NETFramework4.7.1" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="$name$.targets" target="build\$id$.targets" />
+    <file src="$buildDir$net471\$name$.dll" target="build\net471" />
+    <file src="$buildDir$netcoreapp2.2\$name$.dll" target="build\netcoreapp2.2" />
+    <file src="$commonDir$icon.png" target="images\icon.png" />
+    <file src="_._" target="lib\net471" />
+    <file src="_._" target="lib\netcoreapp2.2" />
+    <file src="$buildDir$net471\ICSharpCode.SharpZipLib.dll" target="build\net471" />
+    <file src="$buildDir$net471\ICSharpCode.SharpZipLib.dll" target="build\netcoreapp2.2" />
+    <file src="$buildDir$net471\SpoiledCat.Unity.NiceIO.dll" target="build\net471" />
+    <file src="$buildDir$net471\SpoiledCat.Unity.NiceIO.dll" target="build\netcoreapp2.2" />
+  </files>
+</package>

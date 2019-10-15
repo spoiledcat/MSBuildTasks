@@ -1,8 +1,10 @@
 <Project>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <LangVersion>7.3</LangVersion>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
 
-    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</RepoRoot>
+    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))..\</RepoRoot>
     <RepoBuildPath>$(RepoRoot)build\</RepoBuildPath>
     <RepoBinPath>$(RepoBuildPath)bin\</RepoBinPath>
     <RepoObjPath>$(RepoBuildPath)obj\</RepoObjPath>
@@ -10,14 +12,11 @@
     <BaseOutputPath Condition=" '$(BaseOutputPath)' == '' ">$(RepoBinPath)$(MSBuildProjectName)\</BaseOutputPath>
     <PackageOutputPath>$(RepoBuildPath)nuget\$(Configuration)\</PackageOutputPath>
 
-    <LangVersion>7.3</LangVersion>
-    <GenerateDocumentationFile>false</GenerateDocumentationFile>
-
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Authors>Andreia Gaita</Authors>
     <Owners>Andreia Gaita</Owners>
-    <Copyright>2016-2019 Andreia Gaita. All rights reserved.</Copyright>
-    <PackageProjectUrl>https://github.com/spoiledcat/UnityTools</PackageProjectUrl>
+    <Copyright>2019 Andreia Gaita. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://github.com/spoiledcat/MSBuildTasks</PackageProjectUrl>
 
     <MicroBuildPackageVersion>2.0.55</MicroBuildPackageVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -30,5 +29,7 @@
     <PackageReference Include="Nerdbank.GitVersioning" Version="3.0.25" PrivateAssets="all" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net471" Version="1.0.0-preview.2" PrivateAssets="All" IncludeAssets="runtime; build; native; contentfiles; analyzers" Condition=" '$(TargetFramework)' == 'net471' " />
+    <PackageReference Include="Microsoft.Build.Framework" Version="16.3.0" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.3.0" />
   </ItemGroup>
 </Project>

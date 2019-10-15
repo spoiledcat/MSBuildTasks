@@ -3,17 +3,16 @@
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
-    <authors>Andreia Gaita</authors>
-    <owners>Andreia Gaita</owners>
+    <authors>$authors$</authors>
+    <owners>$owners$</owners>
     <icon>images\icon.png</icon>
     <developmentDependency>true</developmentDependency>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">BSD-2-Clause</license>
-    <projectUrl>https://github.com/loresoft/msbuildtasks/blob/master/Documentation/TaskDocs.md#FileUpdate</projectUrl>
-    <description>Replace text in file(s) using a Regular Expression.
-This is a repackaging of the MSBuild Community Tasks FileUpdate task for cross-platform support.</description>
-    <summary>Replace text in file(s) using a Regular Expression.</summary>
-    <copyright>Copyright 2005 Paul Welter. All rights reserved.</copyright>
+    <license type="expression">$license$</license>
+    <projectUrl>$url$</projectUrl>
+    <description>$description$</description>
+    <summary>$summary$</summary>
+    <copyright>$copyright$</copyright>
     <repository type="git" url="https://github.com/spoiledcat/MSBuildTasks" commit="$commit$" />
     <dependencies>
       <group targetFramework=".NETFramework4.7.1">
@@ -30,9 +29,9 @@ This is a repackaging of the MSBuild Community Tasks FileUpdate task for cross-p
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="FileUpdateTask.targets" target="build\SpoiledCat.MSBuild.Tasks.FileUpdate.targets" />
-    <file src="$buildDir$net471\FileUpdateTask.dll" target="build\net471" />
-    <file src="$buildDir$netcoreapp2.2\FileUpdateTask.dll" target="build\netcoreapp2.2" />
+    <file src="$name$.targets" target="build\$id$.targets" />
+    <file src="$buildDir$net471\$name$.dll" target="build\net471" />
+    <file src="$buildDir$netcoreapp2.2\$name$.dll" target="build\netcoreapp2.2" />
     <file src="$commonDir$icon.png" target="images\icon.png" />
     <file src="_._" target="lib\net471" />
     <file src="_._" target="lib\netcoreapp2.2" />

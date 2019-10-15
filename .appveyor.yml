@@ -27,7 +27,7 @@ build_script:
 - dotnet build -c %CONFIGURATION%
 
 after_build:
-- dotnet pack
+- dotnet pack -c %CONFIGURATION%
 
 artifacts:
 - path: build\**\*.nupkg

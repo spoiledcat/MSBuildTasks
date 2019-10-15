@@ -1,20 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(SolutionDir)common\publickey.snk</AssemblyOriginatorKeyFile>
-    <PackageName>$(MSbuildProjectName)</PackageName>
-    <Name>$([System.IO.Path]::GetFileName($(MSBuildProjectDirectory)))</Name>
-    <PackageId>SpoiledCat.MSBuild.Tasks.$(Name)</PackageId>
-    <NuspecFile>$(MSBuildProjectDirectory)\$(MSbuildProjectName).nuspec</NuspecFile>
+    <TargetFrameworks>net471;netcoreapp2.2</TargetFrameworks>
+    <SolutionDir Condition=" '$(SolutionDir)' == '' ">..\..\</SolutionDir>
+    <PackageDescription>Replace text in file(s) using a Regular Expression.
+This is a repackaging of the MSBuild Community Tasks FileUpdate task for cross-platform support.</PackageDescription>
+    <PackageSummary>Replace text in file(s) using a Regular Expression.</PackageSummary>
+    <Copyright>Copyright 2005 Paul Welter. All rights reserved.</Copyright>
   </PropertyGroup>
+  
+  <Import Project="$(SolutionDir)common\configuration.targets" />
 
   <ItemGroup>
-    <None Remove="*.DotSettings;*.ncrunch*;bin\**;obj\**;LICENSE;version.json" />
-    <None Remove="_._" />
-    <None Include="$(SolutionDir)common\icon.png" Pack="true" PackagePath="\" />
-    <None Include="$(SolutionDir)LICENSE" Pack="true" PackagePath="\" />
+    <None Remove="$(SolutionDir)LICENSE" Pack="false"/>
   </ItemGroup>
 
   <Target Name="SetPackageInfo" BeforeTargets="GenerateNuspec" AfterTargets="AfterBuild">
