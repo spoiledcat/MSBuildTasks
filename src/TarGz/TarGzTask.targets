@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <TaskName>TarGz</TaskName>
-    <TaskDLL>$(TaskName)Task.dll</TaskDLL>
-    <Profile Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">net471</Profile>
-    <Profile Condition="'$(TargetFrameworkIdentifier)' != '.NETFramework'">netcoreapp2.2</Profile>
-    <TaskToolsPath Condition="'$(TaskToolsPath)' == '' and '$(MSBuildThisFile)' == '$(TaskName)Task.targets'">$(MSBuildThisFileDirectory)</TaskToolsPath>
-    <TaskToolsPath Condition="'$(TaskToolsPath)' == '' and '$(MSBuildThisFile)' == 'SpoiledCat.MSBuild.Tasks.$(TaskName).targets'">$(MSBuildThisFileDirectory)$(Profile)\</TaskToolsPath>
-    <TaskLib Condition="'$(OS)' == 'Windows_NT'">$([MSBUILD]::Unescape($(TaskToolsPath)$(TaskDLL)))</TaskLib>
-    <TaskLib Condition="'$(OS)' != 'Windows_NT'">$(TaskToolsPath)$(TaskDLL)</TaskLib>
-    <TaskLib Condition="!Exists('$(TaskLib)')">$(TaskDLL)</TaskLib>
+    <TarGz_TaskName>TarGz</TarGz_TaskName>
+
+    <TarGz_TaskDLL>$(TarGz_TaskName)Task.dll</TarGz_TaskDLL>
+    <TarGz_Profile Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">net471</TarGz_Profile>
+    <TarGz_Profile Condition="'$(TargetFrameworkIdentifier)' != '.NETFramework'">netcoreapp2.2</TarGz_Profile>
+    <TarGz_TaskToolsPath Condition="'$(TarGz_TaskToolsPath)' == '' and '$(MSBuildThisFile)' == '$(TarGz_TaskName)Task.targets'">$(MSBuildThisFileDirectory)</TarGz_TaskToolsPath>
+    <TarGz_TaskToolsPath Condition="'$(TarGz_TaskToolsPath)' == '' and '$(MSBuildThisFile)' == 'SpoiledCat.MSBuild.Tasks.$(TarGz_TaskName).targets'">$(MSBuildThisFileDirectory)$(TarGz_Profile)\</TarGz_TaskToolsPath>
+    <TarGz_TaskLib Condition="'$(OS)' == 'Windows_NT'">$([MSBUILD]::Unescape($(TarGz_TaskToolsPath)$(TarGz_TaskDLL)))</TarGz_TaskLib>
+    <TarGz_TaskLib Condition="'$(OS)' != 'Windows_NT'">$(TarGz_TaskToolsPath)$(TarGz_TaskDLL)</TarGz_TaskLib>
+    <TarGz_TaskLib Condition="!Exists('$(TarGz_TaskLib)')">$(TarGz_TaskDLL)</TarGz_TaskLib>
   </PropertyGroup>
-  <UsingTask AssemblyFile="$(TaskLib)" TaskName="SpoiledCat.MSBuild.Community.Tasks.$(TaskName)" />
+  <UsingTask AssemblyFile="$(TarGz_TaskLib)" TaskName="SpoiledCat.MSBuild.Community.Tasks.$(TarGz_TaskName)" />
 </Project>

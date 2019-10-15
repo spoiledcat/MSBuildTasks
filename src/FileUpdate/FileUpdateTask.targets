@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <TaskName>FileUpdate</TaskName>
-    <TaskDLL>$(TaskName)Task.dll</TaskDLL>
-    <Profile Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">net471</Profile>
-    <Profile Condition="'$(TargetFrameworkIdentifier)' != '.NETFramework'">netcoreapp2.2</Profile>
-    <TaskToolsPath Condition="'$(TaskToolsPath)' == '' and '$(MSBuildThisFile)' == '$(TaskName)Task.targets'">$(MSBuildThisFileDirectory)</TaskToolsPath>
-    <TaskToolsPath Condition="'$(TaskToolsPath)' == '' and '$(MSBuildThisFile)' == 'SpoiledCat.MSBuild.Tasks.$(TaskName).targets'">$(MSBuildThisFileDirectory)$(Profile)\</TaskToolsPath>
-    <TaskLib Condition="'$(OS)' == 'Windows_NT'">$([MSBUILD]::Unescape($(TaskToolsPath)$(TaskDLL)))</TaskLib>
-    <TaskLib Condition="'$(OS)' != 'Windows_NT'">$(TaskToolsPath)$(TaskDLL)</TaskLib>
-    <TaskLib Condition="!Exists('$(TaskLib)')">$(TaskDLL)</TaskLib>
+    <FileUpdate_TaskName>FileUpdate</FileUpdate_TaskName>
+
+    <FileUpdate_TaskDLL>$(FileUpdate_TaskName)Task.dll</FileUpdate_TaskDLL>
+    <FileUpdate_Profile Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">net471</FileUpdate_Profile>
+    <FileUpdate_Profile Condition="'$(TargetFrameworkIdentifier)' != '.NETFramework'">netcoreapp2.2</FileUpdate_Profile>
+    <FileUpdate_TaskToolsPath Condition="'$(FileUpdate_TaskToolsPath)' == '' and '$(MSBuildThisFile)' == '$(FileUpdate_TaskName)Task.targets'">$(MSBuildThisFileDirectory)</FileUpdate_TaskToolsPath>
+    <FileUpdate_TaskToolsPath Condition="'$(FileUpdate_TaskToolsPath)' == '' and '$(MSBuildThisFile)' == 'SpoiledCat.MSBuild.Tasks.$(FileUpdate_TaskName).targets'">$(MSBuildThisFileDirectory)$(FileUpdate_Profile)\</FileUpdate_TaskToolsPath>
+    <FileUpdate_TaskLib Condition="'$(OS)' == 'Windows_NT'">$([MSBUILD]::Unescape($(FileUpdate_TaskToolsPath)$(FileUpdate_TaskDLL)))</FileUpdate_TaskLib>
+    <FileUpdate_TaskLib Condition="'$(OS)' != 'Windows_NT'">$(FileUpdate_TaskToolsPath)$(FileUpdate_TaskDLL)</FileUpdate_TaskLib>
+    <FileUpdate_TaskLib Condition="!Exists('$(FileUpdate_TaskLib)')">$(FileUpdate_TaskDLL)</FileUpdate_TaskLib>
   </PropertyGroup>
-  <UsingTask AssemblyFile="$(TaskLib)" TaskName="SpoiledCat.MSBuild.Community.Tasks.$(TaskName)" />
+  <UsingTask AssemblyFile="$(FileUpdate_TaskLib)" TaskName="SpoiledCat.MSBuild.Community.Tasks.$(FileUpdate_TaskName)" />
 </Project>
