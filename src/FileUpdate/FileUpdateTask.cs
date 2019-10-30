@@ -23,16 +23,16 @@ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
 DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
 THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
-THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 #endregion
 
 #region 2011-12-19: Default Encoding by Manuel Sprock (Phoenix Contact)
-/* 
-Support for default encoding (utf-8-without-bom) added. 
-There is no WebName for utf-8-without-bom. It's the default 
+/*
+Support for default encoding (utf-8-without-bom) added.
+There is no WebName for utf-8-without-bom. It's the default
 encoding when not specifying an encoding and using the overload
-File.WriteAllText(fileName, buffer) 
+File.WriteAllText(fileName, buffer)
 Cf. http://msdn.microsoft.com/en-us/library/ms143375.aspx
 */
 #endregion
@@ -112,7 +112,7 @@ namespace SpoiledCat.MSBuild.Community.Tasks
 		private bool _multiline;
 
 		/// <summary>
-		/// Gets or sets a value changing the meaning of ^ and $ so they match at the beginning and end, 
+		/// Gets or sets a value changing the meaning of ^ and $ so they match at the beginning and end,
 		/// respectively, of any line, and not just the beginning and end of the entire string.
 		/// </summary>
 		/// <value><c>true</c> if multiline; otherwise, <c>false</c>.</value>
@@ -125,8 +125,8 @@ namespace SpoiledCat.MSBuild.Community.Tasks
 		private bool _singleline;
 
 		/// <summary>
-		/// Gets or sets a value changing the meaning of the dot (.) so it matches 
-		/// every character (instead of every character except \n). 
+		/// Gets or sets a value changing the meaning of the dot (.) so it matches
+		/// every character (instead of every character except \n).
 		/// </summary>
 		/// <value><c>true</c> if singleline; otherwise, <c>false</c>.</value>
 		public bool Singleline
@@ -171,11 +171,7 @@ namespace SpoiledCat.MSBuild.Community.Tasks
 			set { _replacementText = value; }
 		}
 
-		/// Maintain the behaviour of the original implementation for compatibility
-		/// (i.e. initialize _useDefaultEncoding with false) and use utf-8-without-bom,  
-		/// which is Microsoft's default encoding, only when Encoding property is set 
-		/// to "utf-8-without-bom". 
-		private bool _useDefaultEncoding;
+		private bool _useDefaultEncoding = true;
 
 		private Encoding _encoding = System.Text.Encoding.UTF8;
 		/// <summary>
@@ -193,8 +189,8 @@ namespace SpoiledCat.MSBuild.Community.Tasks
 			}
 			set
 			{
-				if (value.ToLower().CompareTo("utf-8-without-bom") == 0) _useDefaultEncoding = true;
-				else _encoding = System.Text.Encoding.GetEncoding(value);
+				_useDefaultEncoding = value.ToLower().CompareTo("utf-8-without-bom") == 0;
+				if (!_useDefaultEncoding) _encoding = System.Text.Encoding.GetEncoding(value);
 			}
 		}
 
