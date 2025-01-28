@@ -11,11 +11,6 @@
     <PackageReference Include="com.spoiledcat.simpleio" Version="2.2.14" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Update="Microsoft.Build.Framework" Version="17.12.6" />
-    <PackageReference Update="Microsoft.Build.Utilities.Core" Version="17.12.6" />
-  </ItemGroup>
-
   <Import Project="$(SolutionDir)common\configuration.targets" />
 
 </Project>
