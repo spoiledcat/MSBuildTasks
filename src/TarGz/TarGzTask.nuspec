@@ -18,14 +18,14 @@
       <group targetFramework=".NETFramework4.7.1">
         <dependency id="Microsoft.Build.Framework" version="16.3.0" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Build.Utilities.Core" version="16.3.0" exclude="Build,Analyzers" />
-        <dependency id="SharpZipLib" version="1.2.0" exclude="Build,Analyzers" />
-        <dependency id="SpoiledCat.Unity.NiceIO" version="1.0.14" exclude="Build,Analyzers" />
+        <dependency id="SharpZipLib" version="1.4.2" exclude="Build,Analyzers" />
+        <dependency id="com.spoiledcat.simpleio" version="2.2.14" exclude="Build,Analyzers" />
       </group>
-      <group targetFramework=".NETCoreApp2.2">
+      <group targetFramework=".NETCoreApp3.1">
         <dependency id="Microsoft.Build.Framework" version="16.3.0" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Build.Utilities.Core" version="16.3.0" exclude="Build,Analyzers" />
-        <dependency id="SharpZipLib" version="1.2.0" exclude="Build,Analyzers" />
-        <dependency id="SpoiledCat.Unity.NiceIO" version="1.0.14" exclude="Build,Analyzers" />
+        <dependency id="SharpZipLib" version="1.4.2" exclude="Build,Analyzers" />
+        <dependency id="com.spoiledcat.simpleio" version="2.2.14" exclude="Build,Analyzers" />
       </group>
     </dependencies>
     <frameworkAssemblies>
@@ -35,13 +35,13 @@
   <files>
     <file src="$name$.targets" target="build\$id$.targets" />
     <file src="$buildDir$net471\$name$.dll" target="build\net471" />
-    <file src="$buildDir$netcoreapp2.2\$name$.dll" target="build\netcoreapp2.2" />
+    <file src="$buildDir$netcoreapp3.1\$name$.dll" target="build\netcoreapp3.1" />
     <file src="$commonDir$icon.png" target="images\icon.png" />
     <file src="_._" target="lib\net471" />
-    <file src="_._" target="lib\netcoreapp2.2" />
+    <file src="_._" target="lib\netcoreapp3.1" />
     <file src="$buildDir$net471\ICSharpCode.SharpZipLib.dll" target="build\net471" />
-    <file src="$buildDir$net471\ICSharpCode.SharpZipLib.dll" target="build\netcoreapp2.2" />
-    <file src="$buildDir$net471\SpoiledCat.Unity.NiceIO.dll" target="build\net471" />
-    <file src="$buildDir$net471\SpoiledCat.Unity.NiceIO.dll" target="build\netcoreapp2.2" />
+    <file src="$buildDir$net471\ICSharpCode.SharpZipLib.dll" target="build\netcoreapp3.1" />
+    <file src="$buildDir$net471\com.spoiledcat.simpleio.dll" target="build\net471" />
+    <file src="$buildDir$net471\com.spoiledcat.simpleio.dll" target="build\netcoreapp3.1" />
   </files>
 </package>
