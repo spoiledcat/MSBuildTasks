@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net471;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net471</TargetFrameworks>
     <SolutionDir Condition=" '$(SolutionDir)' == '' ">..\..\</SolutionDir>
     <PackageSummary>Create a tar.gz archive.</PackageSummary>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
-    <PackageReference Include="com.spoiledcat.simpleio" Version="2.2.14" />
+    <PackageReference Include="SpoiledCat.Unity.NiceIO" Version="1.0.20" />
   </ItemGroup>
 
   <Import Project="$(SolutionDir)common\configuration.targets" />

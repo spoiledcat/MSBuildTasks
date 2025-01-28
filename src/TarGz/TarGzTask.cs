@@ -33,7 +33,7 @@ using Microsoft.Build.Framework;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.GZip;
 using ICSharpCode.SharpZipLib.Tar;
-using SpoiledCat.SimpleIO;
+using SpoiledCat.NiceIO;
 
 namespace SpoiledCat.MSBuild.Community.Tasks
 {
@@ -83,12 +83,12 @@ namespace SpoiledCat.MSBuild.Community.Tasks
 			{
 				gz.SetLevel(3);
 
-				foreach (var file in Include.Select(x => x.ItemSpec.ToSPath()).Where(x => x.FileExists()))
+				foreach (var file in Include.Select(x => x.ItemSpec.ToNPath()).Where(x => x.FileExists()))
 				{
 					AddToArchive(rootName, file, outStream, ref buffer);
 				}
 
-				foreach (var dir in Include.Select(x => x.ItemSpec.ToSPath()).Where(x => x.DirectoryExists()))
+				foreach (var dir in Include.Select(x => x.ItemSpec.ToNPath()).Where(x => x.DirectoryExists()))
 				{
 					foreach (var file in dir.Contents(true))
 					{
@@ -103,7 +103,7 @@ namespace SpoiledCat.MSBuild.Community.Tasks
 			return true;
 		}
 
-		private void AddToArchive(string rootName, SPath file, TarOutputStream outStream, ref byte[] buffer)
+		private void AddToArchive(string rootName, NPath file, TarOutputStream outStream, ref byte[] buffer)
 		{
 			rootName += file.FileName;
 

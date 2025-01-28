@@ -5,7 +5,6 @@
 
     <TarGz_TaskDLL>$(TarGz_TaskName)Task.dll</TarGz_TaskDLL>
     <TarGz_Profile Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">net471</TarGz_Profile>
-    <TarGz_Profile Condition="'$(TargetFrameworkIdentifier)' != '.NETFramework'">netcoreapp3.1</TarGz_Profile>
     <TarGz_TaskToolsPath Condition="'$(TarGz_TaskToolsPath)' == '' and '$(MSBuildThisFile)' == '$(TarGz_TaskName)Task.targets'">$(MSBuildThisFileDirectory)</TarGz_TaskToolsPath>
     <TarGz_TaskToolsPath Condition="'$(TarGz_TaskToolsPath)' == '' and '$(MSBuildThisFile)' == 'SpoiledCat.MSBuild.Tasks.$(TarGz_TaskName).targets'">$(MSBuildThisFileDirectory)$(TarGz_Profile)\</TarGz_TaskToolsPath>
     <TarGz_TaskLib Condition="'$(OS)' == 'Windows_NT'">$([MSBUILD]::Unescape($(TarGz_TaskToolsPath)$(TarGz_TaskDLL)))</TarGz_TaskLib>

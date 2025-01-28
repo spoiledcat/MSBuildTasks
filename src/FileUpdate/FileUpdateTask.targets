@@ -5,7 +5,6 @@
 
     <FileUpdate_TaskDLL>$(FileUpdate_TaskName)Task.dll</FileUpdate_TaskDLL>
     <FileUpdate_Profile Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">net471</FileUpdate_Profile>
-    <FileUpdate_Profile Condition="'$(TargetFrameworkIdentifier)' != '.NETFramework'">net8.0</FileUpdate_Profile>
     <FileUpdate_TaskToolsPath Condition="'$(FileUpdate_TaskToolsPath)' == '' and '$(MSBuildThisFile)' == '$(FileUpdate_TaskName)Task.targets'">$(MSBuildThisFileDirectory)</FileUpdate_TaskToolsPath>
     <FileUpdate_TaskToolsPath Condition="'$(FileUpdate_TaskToolsPath)' == '' and '$(MSBuildThisFile)' == 'SpoiledCat.MSBuild.Tasks.$(FileUpdate_TaskName).targets'">$(MSBuildThisFileDirectory)$(FileUpdate_Profile)\</FileUpdate_TaskToolsPath>
     <FileUpdate_TaskLib Condition="'$(OS)' == 'Windows_NT'">$([MSBUILD]::Unescape($(FileUpdate_TaskToolsPath)$(FileUpdate_TaskDLL)))</FileUpdate_TaskLib>
