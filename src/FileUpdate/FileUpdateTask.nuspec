@@ -19,10 +19,6 @@
         <dependency id="Microsoft.Build.Framework" version="17.12.6" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Build.Utilities.Core" version="17.12.6" exclude="Build,Analyzers" />
       </group>
-      <group targetFramework=".NETCoreApp3.1">
-        <dependency id="Microsoft.Build.Framework" version="17.12.6" exclude="Build,Analyzers" />
-        <dependency id="Microsoft.Build.Utilities.Core" version="17.12.6" exclude="Build,Analyzers" />
-      </group>
       <group targetFramework=".NET8.0">
         <dependency id="Microsoft.Build.Framework" version="17.12.6" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Build.Utilities.Core" version="17.12.6" exclude="Build,Analyzers" />
@@ -35,11 +31,9 @@
   <files>
     <file src="$name$.targets" target="build\$id$.targets" />
     <file src="$buildDir$net471\$name$.dll" target="build\net471" />
-    <file src="$buildDir$netcoreapp3.1\$name$.dll" target="build\netcoreapp3.1" />
     <file src="$buildDir$net8.0\$name$.dll" target="build\net8.0" />
     <file src="$commonDir$icon.png" target="images\icon.png" />
     <file src="_._" target="lib\net471" />
-    <file src="_._" target="lib\netcoreapp3.1" />
     <file src="_._" target="lib\net8.0" />
   </files>
 </package>
