@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net471;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net471;netcoreapp3.1;net8.0</TargetFrameworks>
     <SolutionDir Condition=" '$(SolutionDir)' == '' ">..\..\</SolutionDir>
     <PackageDescription>Replace text in file(s) using a Regular Expression.
 This is a repackaging of the MSBuild Community Tasks FileUpdate task for cross-platform support.</PackageDescription>
