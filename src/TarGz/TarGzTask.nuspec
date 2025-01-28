@@ -41,7 +41,7 @@
     <file src="_._" target="lib\netcoreapp3.1" />
     <file src="$buildDir$net471\ICSharpCode.SharpZipLib.dll" target="build\net471" />
     <file src="$buildDir$net471\ICSharpCode.SharpZipLib.dll" target="build\netcoreapp3.1" />
-    <file src="$buildDir$net471\com.spoiledcat.simpleio.dll" target="build\net471" />
-    <file src="$buildDir$net471\com.spoiledcat.simpleio.dll" target="build\netcoreapp3.1" />
+    <file src="$buildDir$net471\SpoiledCat.Unity.SimpleIO.dll" target="build\net471" />
+    <file src="$buildDir$net471\SpoiledCat.Unity.SimpleIO.dll" target="build\netcoreapp3.1" />
   </files>
 </package>
