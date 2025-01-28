@@ -27,6 +27,7 @@
   <files>
     <file src="$name$.targets" target="build\$id$.targets" />
     <file src="$buildDir$net471\$name$.dll" target="build\net471" />
+    <file src="$buildDir$net471\$name$.dll" target="build" />
     <file src="$commonDir$icon.png" target="images\icon.png" />
     <file src="_._" target="lib\net471" />
   </files>
